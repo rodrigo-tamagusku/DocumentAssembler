@@ -10,13 +10,19 @@ namespace DocumentAssemblerTest1
         [SetUp]
         public void Setup()
         {
+            Node raiz = MontaRaiz();
+            this.arvore = new Arvore(raiz);
+        }
+
+        private static Node MontaRaiz()
+        {
             /*
-                 raiz
-                /    \
-              1       2
-             / \    /  \
-            3  4   5   6
-             */
+                raiz
+               /    \
+             1       2
+            / \    /  \
+           3  4   5   6
+            */
             Node raiz = new();
             Node node1 = new();
             Node node2 = new();
@@ -30,13 +36,20 @@ namespace DocumentAssemblerTest1
             Node node6 = new Folha("Sou número 6");
             node2.AdicionaFilho(node5);
             node2.AdicionaFilho(node6);
-            this.arvore = new Arvore(raiz);
+            return raiz;
         }
 
         [Test]
-        public void PrintaNodesConsole()
+        public void PrinterConsoleTexto()
         {
             PrinterConsoleTexto printer = new PrinterConsoleTexto();
+            this.arvore.Print(printer);
+        }
+
+        [Test]
+        public void PrinterConsoleHorario()
+        {
+            PrinterConsoleHorario printer = new PrinterConsoleHorario();
             this.arvore.Print(printer);
         }
     }
