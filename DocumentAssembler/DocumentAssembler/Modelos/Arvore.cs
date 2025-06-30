@@ -1,4 +1,4 @@
-﻿namespace DocumentAssembler
+﻿namespace DocumentAssembler.Modelos
 {
     public class Arvore
     {
