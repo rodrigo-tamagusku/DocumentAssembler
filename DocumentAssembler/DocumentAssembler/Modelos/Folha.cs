@@ -2,15 +2,15 @@
 {
     public class Folha : Node
     {
-        private string texto;
+        public string Texto { get; set; }
 
         #region construtores
         public Folha() : base()
         {
         }
-        public Folha(string texto) : base(texto)
+        public Folha(string texto)
         {
-            this.texto = texto;
+            this.Texto = texto;
         }
         #endregion construtores
     }
