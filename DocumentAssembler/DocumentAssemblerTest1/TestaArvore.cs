@@ -1,17 +1,21 @@
 ﻿using DocumentAssembler.Modelos;
+using DocumentAssembler.Monitor;
 using DocumentAssembler.Printers;
+using Monitor = DocumentAssembler.Monitor.Monitor;
 
 namespace DocumentAssemblerTest1
 {
     public class TestaArvore
     {
         private Arvore arvore;
+        private Arvore arvoreComMonitor;
 
         [SetUp]
         public void Setup()
         {
             Node raiz = MontaRaiz();
             this.arvore = new Arvore(raiz);
+            this.arvoreComMonitor = new Arvore(raiz, new Monitor());
         }
 
         private static Node MontaRaiz()
@@ -61,7 +65,7 @@ namespace DocumentAssemblerTest1
                 new PrinterConsoleTexto(),
                 new PrinterConsoleHorario()
             };
-            this.arvore.Print(listaPrinters);
+            this.arvoreComMonitor.Print(listaPrinters);
         }
     }
 }
