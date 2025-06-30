@@ -37,13 +37,13 @@ namespace DocumentAssembler.Modelos
 
         public void PrintComFilhos(IPrinter printer, Node node, int profundidade)
         {
-            this.monitor?.Monitora(node, printer, "Início");
+            this.monitor?.Monitora(node, printer, "Início", profundidade);
             printer.Print(node, profundidade);
+            this.monitor?.Monitora(node, printer, "Fim", profundidade);
             foreach (Node filho in node.Filhos)
             {
                 PrintComFilhos(printer, filho, profundidade + 1);
             }
-            this.monitor?.Monitora(node, printer, "Fim");
         }
         public void Print(IEnumerable<IPrinter> printers)
         {

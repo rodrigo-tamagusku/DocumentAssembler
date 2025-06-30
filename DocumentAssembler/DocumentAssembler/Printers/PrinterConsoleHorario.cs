@@ -1,4 +1,5 @@
 ﻿using DocumentAssembler.Modelos;
+using DocumentAssembler.Monitor;
 using System;
 
 namespace DocumentAssembler.Printers
@@ -9,10 +10,10 @@ namespace DocumentAssembler.Printers
         {
             string texto =
                 string.Format("{0}, {1}, {2}, {3}",
-                    $"Profundidade: {profundidade}",
-                    $"Tipo: {node.GetType()}",
-                    $"Horario Criação: {node.HorarioCriacao}",
-                    $"Horario Atual: {DateTime.Now}");
+                    Monitoramento.Profundidade(profundidade),
+                    Monitoramento.TipoNode(node),
+                    Monitoramento.TempoCriacao(node),
+                    Monitoramento.TempoExecucao());
             Console.WriteLine(texto);
         }
     }

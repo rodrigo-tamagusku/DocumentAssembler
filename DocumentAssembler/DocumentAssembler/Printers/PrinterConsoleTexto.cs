@@ -1,20 +1,14 @@
 ﻿using DocumentAssembler.Modelos;
+using DocumentAssembler.Monitor;
 using System;
 
 namespace DocumentAssembler.Printers
 {
     public class PrinterConsoleTexto : IPrinter
     {
-        private const string NAO_DEFINIDO = "Não definido";
-
         public void Print(Node node, int profundidade)
         {
-            string texto = NAO_DEFINIDO;
-            if (node is Folha folha)
-            {
-                texto = folha.Texto;
-            }
-            Console.WriteLine($"Tipo: {node.GetType()}, Texto: {texto}");
+            Console.WriteLine($"{Monitoramento.TipoNode(node)}, {Monitoramento.TextoNode(node)}");
         }
     }
 }

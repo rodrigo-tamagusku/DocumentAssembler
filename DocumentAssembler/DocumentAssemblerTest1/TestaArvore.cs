@@ -7,6 +7,7 @@ namespace DocumentAssemblerTest1
 {
     public class TestaArvore
     {
+        private IMonitor monitor;
         private Arvore arvore;
         private Arvore arvoreComMonitor;
 
@@ -15,7 +16,14 @@ namespace DocumentAssemblerTest1
         {
             Node raiz = MontaRaiz();
             this.arvore = new Arvore(raiz);
-            this.arvoreComMonitor = new Arvore(raiz, new Monitor());
+            this.monitor = new Monitor();
+            this.monitor.AdicionaMonitoramento(Monitoramento.TempoExecucao);
+            this.monitor.AdicionaMonitoramento(Monitoramento.Profundidade);
+            this.monitor.AdicionaMonitoramento(Monitoramento.TipoNode);
+            this.monitor.AdicionaMonitoramento(Monitoramento.TextoNode);
+            this.monitor.AdicionaMonitoramento(Monitoramento.TempoCriacao);
+            this.monitor.AdicionaMonitoramento(Monitoramento.TipoPrinter);
+            this.arvoreComMonitor = new Arvore(raiz, monitor);
         }
 
         private static Node MontaRaiz()
