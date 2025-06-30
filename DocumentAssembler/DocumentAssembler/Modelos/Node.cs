@@ -4,18 +4,18 @@ namespace DocumentAssembler.Modelos
 {
     public class Node
     {
-        private List<Node> filhos;
+        public List<Node> Filhos {  get; protected set; }
         #region construtores
         public Node()
         {
-            this.filhos = new List<Node>();
+            this.Filhos = new List<Node>();
         }
         #endregion
 
         #region Funções
         public void AdicionaFilho(Node filho)
         {
-            this.filhos.Add(filho);
+            this.Filhos.Add(filho);
         }
         #endregion Funções
     }

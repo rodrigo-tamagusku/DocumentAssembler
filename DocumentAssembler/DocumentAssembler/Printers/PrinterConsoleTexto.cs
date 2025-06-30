@@ -15,6 +15,10 @@ namespace DocumentAssembler.Printers
                 texto = folha.Texto;
             }
             Console.WriteLine($"Tipo: {node.GetType()}, Texto: {texto}");
+            foreach (Node filho in node.Filhos)
+            {
+                this.Print(filho);
+            }
         }
     }
 }
