@@ -1,4 +1,6 @@
-﻿namespace DocumentAssembler.Modelos
+﻿using DocumentAssembler.Printers;
+
+namespace DocumentAssembler.Modelos
 {
     public class Arvore
     {
@@ -12,6 +14,13 @@
         public Arvore(Node raiz)
         {
             this.raiz = raiz;
+        }
+        #endregion
+
+        #region Funções
+        public void Print(IPrinter printer)
+        {
+            printer.Print(raiz);
         }
         #endregion
     }
