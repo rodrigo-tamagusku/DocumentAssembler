@@ -1,17 +1,22 @@
-﻿namespace DocumentAssembler.Modelos
+﻿using System.Collections.Generic;
+
+namespace DocumentAssembler.Modelos
 {
     public class Node
     {
-        private string texto;
-
+        private List<Node> filhos;
         #region construtores
         public Node()
         {
+            this.filhos = new List<Node>();
         }
-        public Node(string texto)
+        #endregion
+
+        #region Funções
+        public void AdicionaFilho(Node filho)
         {
-            this.texto = texto;
+            this.filhos.Add(filho);
         }
-        #endregion construtores
+        #endregion Funções
     }
 }
