@@ -42,15 +42,26 @@ namespace DocumentAssemblerTest1
         [Test]
         public void PrinterConsoleTexto()
         {
-            PrinterConsoleTexto printer = new PrinterConsoleTexto();
+            PrinterConsoleTexto printer = new();
             this.arvore.Print(printer);
         }
 
         [Test]
         public void PrinterConsoleHorario()
         {
-            PrinterConsoleHorario printer = new PrinterConsoleHorario();
+            PrinterConsoleHorario printer = new();
             this.arvore.Print(printer);
+        }
+
+        [Test]
+        public void PrinterTodos()
+        {
+            List<IPrinter> listaPrinters = new()
+            {
+                new PrinterConsoleTexto(),
+                new PrinterConsoleHorario()
+            };
+            this.arvore.Print(listaPrinters);
         }
     }
 }
