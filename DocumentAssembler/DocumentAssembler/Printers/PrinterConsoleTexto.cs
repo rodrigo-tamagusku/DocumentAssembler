@@ -7,7 +7,7 @@ namespace DocumentAssembler.Printers
     {
         private const string NAO_DEFINIDO = "Não definido";
 
-        public void Print(Node node)
+        public void Print(Node node, int profundidade)
         {
             string texto = NAO_DEFINIDO;
             if (node is Folha folha)
@@ -15,10 +15,6 @@ namespace DocumentAssembler.Printers
                 texto = folha.Texto;
             }
             Console.WriteLine($"Tipo: {node.GetType()}, Texto: {texto}");
-            foreach (Node filho in node.Filhos)
-            {
-                this.Print(filho);
-            }
         }
     }
 }

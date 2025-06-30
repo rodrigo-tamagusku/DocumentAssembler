@@ -4,6 +4,6 @@ namespace DocumentAssembler.Printers
 {
     public interface IPrinter
     {
-        public void Print(Node node);
+        public void Print(Node node, int profundidade);
     }
 }

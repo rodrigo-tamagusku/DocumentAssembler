@@ -5,18 +5,15 @@ namespace DocumentAssembler.Printers
 {
     public class PrinterConsoleHorario : IPrinter
     {
-        public void Print(Node node)
+        public void Print(Node node, int profundidade)
         {
             string texto =
-                string.Format("{0}, {1}, {2}",
-                $"Tipo: {node.GetType()}",
-                $"Horario Criação: {node.HorarioCriacao}",
-                $"Horario Atual: {DateTime.Now}");
+                string.Format("{0}, {1}, {2}, {3}",
+                    $"Profundidade: {profundidade}",
+                    $"Tipo: {node.GetType()}",
+                    $"Horario Criação: {node.HorarioCriacao}",
+                    $"Horario Atual: {DateTime.Now}");
             Console.WriteLine(texto);
-            foreach (Node filho in node.Filhos)
-            {
-                this.Print(filho);
-            }
         }
     }
 }
